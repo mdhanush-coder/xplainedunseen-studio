@@ -1,0 +1,274 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+body{margin:0}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.full{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.lay{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0}
+.lay video{width:1920px;height:1080px;display:block;filter:url(#toe)}
+.still{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.still img{width:1920px;height:1080px;display:block;filter:url(#blk)}
+#earL,#fx,#lab{opacity:0}
+#fx{-webkit-mask-image:linear-gradient(90deg,transparent 600px,#000 710px);mask-image:linear-gradient(90deg,transparent 600px,#000 710px)}
+#lgm{background:linear-gradient(90deg,#000 0,#000 620px,rgba(0,0,0,0) 900px);opacity:0}
+.lt{font-family:"Helvetica Neue","Hind",sans-serif;font-weight:500;fill:#f8f3f0;letter-spacing:4px}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="60.5" data-fps="24">
+<svg width="0" height="0" style="position:absolute"><defs>
+<filter id="blk" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.08"/><feFuncG type="linear" slope="1.08" intercept="-0.08"/><feFuncB type="linear" slope="1.08" intercept="-0.08"/></feComponentTransfer></filter>
+<filter id="toe" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/><feFuncG type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/><feFuncB type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/></feComponentTransfer></filter>
+</defs></svg>
+
+<!-- Blender scenes: continuous, natural speed, NO freezes and NO slow motion. -->
+<!-- Blender footage: only stretches where every object stays inside the clip frame (nothing touches a frame edge), natural speed, no freezes -->
+<div id="wb" class="full" style="transform-origin:0 0">
+  <div class="lay" id="gD"><video src="assets/62093d74-3174-4bf9-b8a3-a9a5d5de0e21.mp4" data-start="4.0" data-duration="8.3" data-media-start="0" muted></video></div>
+</div>
+<div id="wf" class="full" style="transform-origin:0 0">
+  <div class="lay" id="gR1"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="12.3" data-duration="2.1" data-media-start="13.7" muted></video></div>
+  <div class="lay" id="gR2"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="17.4" data-duration="2.1" data-media-start="13.7" muted></video><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="19.5" data-duration="0.8" data-media-start="13.7" muted></video></div>
+  <div class="lay" id="gR3"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="29.2" data-duration="2.1" data-media-start="13.7" muted></video><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="31.3" data-duration="2.1" data-media-start="13.7" muted></video><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="33.4" data-duration="0.6" data-media-start="13.7" muted></video></div>
+  <div class="lay" id="gR4"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="43.3" data-duration="2.1" data-media-start="13.7" muted></video><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="45.4" data-duration="0.6" data-media-start="13.7" muted></video></div>
+</div>
+<div id="gm" class="full" style="transform-origin:0 0">
+  <div class="lay" id="gE2"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="14.4" data-duration="3.0" data-media-start="8.7" muted></video></div>
+  <div class="lay" id="gI"><video src="assets/f7517409-3862-410f-8039-0273004d34e7.mp4" data-start="45.9" data-duration="1.5" data-media-start="9.2" muted></video></div>
+</div>
+<div id="lgm" class="full"></div>
+
+<div id="earL" class="full"><div id="ear" class="still"><img src="assets/8c527889-6d93-4f79-ae64-2e75ba3ec89c.png"></div></div>
+
+<!-- part labels: they follow the moving parts (anchors measured per frame) -->
+<svg id="lab" class="full" viewBox="0 0 1920 1080">
+  <g id="lbDriver" opacity="0"><path id="drvBr" d="" fill="none" stroke="#f8f3f0" stroke-width="2"/><text id="drvTx" class="lt" x="1500" y="842" text-anchor="middle" font-size="28">DRIVER</text></g>
+  <g id="lbMagnet" opacity="0"><polyline id="magLn" points="" fill="none" stroke="#f8f3f0" stroke-width="2"/><circle id="magDt" r="6" fill="#8fb6ff"/><text class="lt" x="1560" y="362" font-size="26">MAGNET</text></g>
+  <g id="lbCoil" opacity="0"><polyline id="coiLn" points="" fill="none" stroke="#f8f3f0" stroke-width="2"/><circle id="coiDt" r="6" fill="#8fb6ff"/><text class="lt" x="1380" y="432" font-size="26">COIL</text></g>
+  <g id="lbDia" opacity="0"><polyline id="diaLn" points="" fill="none" stroke="#f8f3f0" stroke-width="2"/><circle id="diaDt" r="6" fill="#8fb6ff"/><text class="lt" x="1105" y="716" text-anchor="middle" font-size="26">DIAPHRAGM</text></g>
+</svg>
+
+<svg id="fx0" class="full" viewBox="0 0 1920 1080">
+<!-- cable cut -->
+<g id="cutS" opacity="0">
+  <g id="cabA" filter="url(#gl)"><path d="M1750 120 C1560 190 1640 400 1280 540" fill="none" stroke="#8fb6ff" stroke-width="9" stroke-linecap="round"/><path d="M1750 120 C1560 190 1640 400 1280 540" fill="none" stroke="#f8f3f0" stroke-width="14" stroke-dasharray="3 14" opacity=".35"/><circle cx="1280" cy="540" r="8" fill="#f8f3f0"/></g>
+  <g id="cabB" filter="url(#gl)"><path d="M1280 540 C1190 580 1010 720 1130 980" fill="none" stroke="#8fb6ff" stroke-width="9" stroke-linecap="round"/><path d="M1280 540 C1190 580 1010 720 1130 980" fill="none" stroke="#f8f3f0" stroke-width="14" stroke-dasharray="3 14" opacity=".35"/><circle cx="1280" cy="540" r="8" fill="#f8f3f0"/></g>
+  <g id="sciss">
+    <g id="bl1"><polygon points="1010,722 1372,729 1380,736 1010,742" fill="url(#steel)"/><ellipse cx="922" cy="738" rx="64" ry="30" fill="none" stroke="#f8f3f0" stroke-width="8"/></g>
+    <g id="bl2"><polygon points="1010,722 1372,729 1380,736 1010,742" fill="url(#steel)"/><ellipse cx="922" cy="738" rx="64" ry="30" fill="none" stroke="#f8f3f0" stroke-width="8"/></g>
+    <circle cx="1010" cy="732" r="14" fill="#f8f3f0"/>
+  </g>
+  <g id="sparks" stroke="#bfe3ff" stroke-width="3" stroke-linecap="round"></g>
+  <circle id="flash" cx="1280" cy="540" r="200" fill="url(#eg)" opacity="0"/>
+</g>
+</svg>
+<!-- motion layer: cable cut, codec compression, frequency hopping, DAC -> amp -> driver, sound waves into the ear -->
+<svg id="fx" class="full" viewBox="0 0 1920 1080">
+<defs>
+<filter id="gl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<radialGradient id="eg"><stop offset="0" stop-color="#bfe3ff" stop-opacity=".9"/><stop offset=".4" stop-color="#4aa3ff" stop-opacity=".45"/><stop offset="1" stop-color="#8fb6ff" stop-opacity="0"/></radialGradient>
+<linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#9fb4d6"/><stop offset=".6" stop-color="#e9f0fb"/><stop offset="1" stop-color="#8fa3c4"/></linearGradient>
+</defs>
+<!-- codec -->
+<g id="codecS" opacity="0" filter="url(#gl)">
+  <path id="cwave" d="" fill="none" stroke="#8fb6ff" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <g id="cbars" stroke="#8fb6ff" stroke-width="3"></g>
+  <g id="cblock" opacity="0"><rect x="1270" y="420" width="210" height="240" rx="18" fill="none" stroke="#f8f3f0" stroke-width="3"/><g id="cdig" font-family="Menlo,Consolas,monospace" font-size="22" fill="#8fb6ff"></g></g>
+</g>
+<!-- frequency hopping -->
+<g id="hop" opacity="0" filter="url(#gl)"></g>
+<!-- DAC -> amplifier -> driver (motion-graphics diagram) -->
+<g id="elec" opacity="0" filter="url(#gl)">
+  <circle id="chipGlow" cx="860" cy="540" r="110" fill="url(#eg)" opacity="0"/>
+  <circle id="ampGlow" cx="1145" cy="540" r="120" fill="url(#eg)" opacity="0"/>
+  <circle id="drvGlow2" cx="1470" cy="540" r="140" fill="url(#eg)" opacity="0"/>
+  <g stroke="#f8f3f0" stroke-width="3" fill="rgba(4,74,186,.25)"><rect x="800" y="480" width="120" height="120" rx="14"/><rect x="835" y="515" width="50" height="50" rx="6" fill="none"/>
+    <path d="M820 480v-18M850 480v-18M880 480v-18M900 480v-18M820 600v18M850 600v18M880 600v18M900 600v18M800 500h-18M800 530h-18M800 560h-18M920 500h18M920 530h18M920 560h18" fill="none"/></g>
+  <path id="w1" d="" fill="none" stroke="#8fb6ff" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="1070,470 1070,610 1215,540" fill="rgba(4,74,186,.25)" stroke="#f8f3f0" stroke-width="3"/>
+  <path id="w2" d="" fill="none" stroke="#8fb6ff" stroke-width="4" stroke-linecap="round"/>
+  <g id="drvIcon" stroke="#f8f3f0" stroke-width="3" fill="none">
+    <rect x="1395" y="490" width="62" height="100" rx="8" fill="rgba(143,182,255,.12)"/><path d="M1405 490v100M1415 490v100M1425 490v100M1435 490v100M1445 490v100"/>
+    <g id="cone"><path d="M1470 478 L1580 410 L1580 670 L1470 602 Z" fill="rgba(4,74,186,.2)"/></g>
+  </g>
+  <g id="edots" fill="#f8f3f0"></g>
+</g>
+<g id="air" fill="none" stroke="#8fb6ff" stroke-linecap="round" filter="url(#gl)"></g>
+<circle id="drumGlow" cx="1483" cy="528" r="70" fill="url(#eg)" opacity="0"/>
+<circle id="cochGlow" cx="1756" cy="522" r="125" fill="url(#eg)" opacity="0"/>
+</svg>
+
+<video id="ov" src="assets/47f26303-d9f3-461c-8f21-de3c258b4dca.webm" data-start="0" data-duration="60.5" muted></video>
+<audio src="assets/2c7309f3-e7fe-449c-b6fa-34b325d55573.mp3" data-start="0" data-duration="60.5" data-media-start="71.0"></audio>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+const O=71.0,R=a=>a-O,E='sine.inOut',SVGNS='http://www.w3.org/2000/svg';
+gsap.set('#wf',{x:600,y:110,scale:.85});
+gsap.set('#wb',{x:480,y:110,scale:.85});
+gsap.set('#gm',{x:300,y:0,scale:1});
+gsap.set('#ear',{x:898,y:216,scale:.6});
+const show=(sel,a,fa,b,fb)=>{tl.to(sel,{opacity:1,duration:fa,ease:E},R(a));if(b!=null)tl.to(sel,{opacity:0,duration:fb,ease:E},R(b));};
+
+/* beat table (abs narration seconds -> screen). No slow motion, no freezes: every Blender clip plays continuously at natural speed.
+ 71-74.6    cable is cut (motion graphics)
+ 74-75.8    headphone scene opens up (natural speed), dissolves into the driver-only scene
+ 75.8-85.4  driver-only scene, one continuous shot: parts separate (labels follow them), board arrives 80.3, battery, antenna, first rings
+ 85.4-88.4  chip macro
+ 88.4-91.3  wide shot: antenna + rings
+ 91-100     codec (motion graphics)
+ 100.2-104.8 radio rings leave the antenna (driver-only scene)
+ 104.3-114.4 2.4 GHz hopping (motion graphics)
+ 114.3-117  antenna catches the waves (wide shot); 116.9-118.4 chip macro
+ 118.9-123.5 DAC -> amplifier -> driver (motion graphics diagram)
+ 123.4-131.5 ear */
+
+/* ---- cable cut (motion graphics) ---- */
+const sparks=document.getElementById('sparks'),spk=[];
+for(let k=0;k<18;k++){const l=document.createElementNS(SVGNS,'line');l.setAttribute('x1',1280);l.setAttribute('y1',540);l.setAttribute('x2',1280);l.setAttribute('y2',540);l.setAttribute('opacity',0);sparks.appendChild(l);spk.push(l);}
+const ALPHA=-35.1;
+gsap.set('#bl1',{rotation:ALPHA-11,svgOrigin:'1010 732'});gsap.set('#bl2',{rotation:ALPHA+11,svgOrigin:'1010 732'});
+gsap.set('#sciss',{x:-260,y:210});
+gsap.set('#cutS',{transformOrigin:'1280px 540px',scale:1.35});gsap.set('#codecS',{transformOrigin:'1150px 540px',scale:1.25});
+tl.to('#cutS',{opacity:1,duration:.7,ease:E},R(71.0));
+tl.to('#sciss',{x:0,y:0,duration:1.7,ease:'power2.out'},R(71.0));
+tl.to('#bl1',{rotation:ALPHA-1.5,svgOrigin:'1010 732',duration:.16,ease:'power3.in'},R(72.78));
+tl.to('#bl2',{rotation:ALPHA+1.5,svgOrigin:'1010 732',duration:.16,ease:'power3.in'},R(72.78));
+tl.to('#bl1',{rotation:ALPHA-6,svgOrigin:'1010 732',duration:.4,ease:'power2.out'},R(73.0));
+tl.to('#bl2',{rotation:ALPHA+6,svgOrigin:'1010 732',duration:.4,ease:'power2.out'},R(73.0));
+tl.to('#cabA',{x:34,y:-38,duration:.9,ease:'power3.out'},R(72.95));
+tl.to('#cabB',{x:-38,y:42,duration:.9,ease:'power3.out'},R(72.95));
+tl.to('#flash',{opacity:1,duration:.12,ease:'power2.out'},R(72.95));
+tl.to('#flash',{opacity:0,duration:.6,ease:'power1.in'},R(73.07));
+spk.forEach((l,k)=>{const ang=(k/18)*Math.PI*2+((k*37)%11)*.05,d=60+((k*53)%70);const x=1280+Math.cos(ang)*d,y=540+Math.sin(ang)*d;
+  tl.fromTo(l,{attr:{x2:1280,y2:540,x1:1280,y1:540},opacity:1},{attr:{x2:x,y2:y,x1:1280+Math.cos(ang)*d*.35,y1:540+Math.sin(ang)*d*.35},duration:.5,ease:'power2.out'},R(72.95));
+  tl.to(l,{opacity:0,duration:.4,ease:'power1.in'},R(73.2));});
+tl.to('#sciss',{x:-120,y:120,opacity:0,duration:.6,ease:E},R(73.5));
+tl.to('#cutS',{opacity:0,duration:.8,ease:E},R(73.8));
+
+/* ---- Blender: continuous clips (no feathers, no dimming) ---- */
+gsap.set('#wf',{x:600,y:110,scale:.85});
+show('#gD',75.0,.8,82.8,.6);
+show('#gR1',83.4,.6,84.8,.6);
+show('#gR2',88.4,.8,90.6,.8);
+show('#gR3',100.2,.8,104.0,.8);
+show('#gR4',114.3,.7,116.7,.7);
+show('#gE2',85.4,.8,87.9,.8);show('#gI',116.9,.7,118.6,.7);
+tl.to('#lgm',{opacity:1,duration:.8,ease:E},R(85.4));tl.to('#lgm',{opacity:0,duration:.8,ease:E},R(87.9));
+tl.to('#lgm',{opacity:1,duration:.7,ease:E},R(116.9));tl.to('#lgm',{opacity:0,duration:.7,ease:E},R(118.6));
+
+/* ---- labels that follow the parts (anchors measured on the driver-only scene, in video pixels) ---- */
+const T0B=75.0; // abs time when the driver-only scene is at media time 0
+const AN={ // media-time -> [x,y] video px
+  dome:[[2.0,930,528],[2.4,879,540],[3.0,790,554],[3.8,735,560],[9,735,560]],
+  coil:[[2.0,1272,480],[2.4,1254,483],[3.0,1233,485],[3.8,1209,486],[9,1209,486]],
+  torus:[[2.0,1440,452],[2.4,1416,456],[3.0,1368,458],[3.8,1305,456],[9,1305,456]],
+  xmin:[[0.3,957],[1.2,931],[2.0,894],[2.4,849],[3.0,742],[3.8,687],[9,687]],
+  xmax:[[0.3,1214],[1.2,1425],[2.0,1667],[2.4,1638],[3.0,1586],[3.8,1545],[9,1545]]};
+function lerpA(tab,m){ if(m<=tab[0][0])return tab[0].slice(1); for(let i=1;i<tab.length;i++){ if(m<=tab[i][0]){const a=tab[i-1],b=tab[i],f=(m-a[0])/(b[0]-a[0]);return a.slice(1).map((v,j)=>v+(b[j+1]-v)*f);} } return tab[tab.length-1].slice(1);}
+const ABS=p=>[480+.85*p[0],110+.85*p[1]];
+function updLab(t){
+  const m=Math.max(0,t-T0B);
+  const d=ABS(lerpA(AN.dome,m)),c=ABS(lerpA(AN.coil,m)),g=ABS(lerpA(AN.torus,m));
+  const x0=480+.85*lerpA(AN.xmin,m)[0]-14,x1=Math.min(1895,480+.85*lerpA(AN.xmax,m)[0]+14);
+  document.getElementById('drvBr').setAttribute('d','M'+x0+' 790V806H'+x1+'V790');
+  document.getElementById('drvTx').setAttribute('x',(x0+x1)/2);
+  document.getElementById('magDt').setAttribute('cx',g[0]);document.getElementById('magDt').setAttribute('cy',g[1]);
+  document.getElementById('magLn').setAttribute('points',g[0]+','+g[1]+' '+g[0]+',400 1554,368');
+  document.getElementById('coiDt').setAttribute('cx',c[0]);document.getElementById('coiDt').setAttribute('cy',c[1]);
+  document.getElementById('coiLn').setAttribute('points',c[0]+','+c[1]+' '+c[0]+',460 1374,438');
+  document.getElementById('diaDt').setAttribute('cx',d[0]);document.getElementById('diaDt').setAttribute('cy',d[1]);
+  document.getElementById('diaLn').setAttribute('points',d[0]+','+d[1]+' '+d[0]+',680 1105,696');
+}
+updLab(76);
+const oL={t:0};tl.to(oL,{t:1,duration:R(80.8)-R(75.0),ease:'none',onUpdate:()=>updLab(75.0+oL.t*5.8)},R(75.0));
+tl.to('#lab',{opacity:1,duration:.3},R(76.0));tl.to('#lab',{opacity:0,duration:.7,ease:E},R(79.8));
+const lab=(id,t)=>tl.to(id,{opacity:1,duration:.45,ease:E},R(t));
+lab('#lbDriver',76.09);lab('#lbMagnet',77.81);lab('#lbCoil',79.17);lab('#lbDia',79.55);
+
+/* ---- codec (motion graphics) ---- */
+const N=28,X0=[],X1=[],YW=[],bars=[];
+const wavePath=(()=>{let d='M760 540';for(let x=760;x<=1140;x+=4){const y=540-120*Math.sin((x-760)/380*Math.PI*6)*Math.sin((x-760)/380*Math.PI);d+=' L'+x+' '+y.toFixed(1);}return d;})();
+document.getElementById('cwave').setAttribute('d',wavePath);
+const cb=document.getElementById('cbars');
+for(let i=0;i<N;i++){const x=760+(i+.5)*(380/N);X0.push(x);X1.push(1290+(i+.5)*(170/N));YW.push(540-120*Math.sin((x-760)/380*Math.PI*6)*Math.sin((x-760)/380*Math.PI));
+ const l=document.createElementNS(SVGNS,'line');l.setAttribute('opacity',0);cb.appendChild(l);bars.push(l);}
+const dg=document.getElementById('cdig'),digs=[];
+for(let r=0;r<6;r++)for(let c=0;c<9;c++){const t=document.createElementNS(SVGNS,'text');t.setAttribute('x',1292+c*20);t.setAttribute('y',462+r*32);t.textContent='0';dg.appendChild(t);digs.push(t);}
+const ss=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);};
+function updC(t){
+  const p=ss((t-93.6)/1.0);
+  bars.forEach((l,i)=>{const a=ss((t-92.5-i*.03)/.4);const x=X0[i]+(X1[i]-X0[i])*p;
+    l.setAttribute('x1',x);l.setAttribute('x2',x);l.setAttribute('y1',540);l.setAttribute('y2',YW[i]);
+    l.setAttribute('opacity',a*(1-ss((t-94.7)/.6)));});
+  const q=Math.floor((t-94.3)/.15);
+  digs.forEach((d,k)=>{const v=((((q*7+k*13)*2654435761)>>>0)>>>7)&1;d.textContent=v;});
+}
+updC(90);
+tl.to('#codecS',{opacity:1,duration:.5,ease:E},R(91.0));
+tl.to('#cwave',{strokeDashoffset:0,duration:1.5,ease:E},R(91.0));
+tl.to('#cblock',{opacity:1,duration:.7,ease:E},R(94.3));
+[95.96,96.68,98.76].forEach(t=>{tl.fromTo('#cblock',{scale:1},{scale:1.07,duration:.18,ease:'power2.out',yoyo:true,repeat:1,transformOrigin:'1375px 540px'},R(t));});
+tl.to('#cwave',{opacity:.25,duration:.8,ease:E},R(94.4));
+tl.to('#codecS',{opacity:0,duration:.8,ease:E},R(99.6));
+const oC={t:0};tl.to(oC,{t:1,duration:R(100)-R(91),ease:'none',onUpdate:()=>updC(91+oC.t*9)},R(91));
+
+/* ---- frequency hopping ---- */
+const hop=document.getElementById('hop'),hb=[];
+for(let i=0;i<40;i++){const l=document.createElementNS(SVGNS,'line');l.setAttribute('x1',780+i*26);l.setAttribute('x2',780+i*26);l.setAttribute('y1',760);l.setAttribute('y2',640);l.setAttribute('stroke','#8fb6ff');l.setAttribute('stroke-width',10);l.setAttribute('stroke-linecap','round');l.setAttribute('opacity',.22);hop.appendChild(l);hb.push(l);}
+function hsh(n){n=((n+7)*2654435761)>>>0;n=(n^(n>>>15))>>>0;return n%40;}
+function upd3(t){
+  let n;if(t<109.22)n=Math.floor((t-104.4)/.22);else if(t<111.92)n=100+Math.floor((t-109.22)/.07);else n=500+Math.floor((t-111.92)/.07);
+  const H=[500,360,260,180],OP=[1,.55,.3,.15];
+  const st=hb.map(()=>({h:120,o:.22,c:'#8fb6ff'}));
+  for(let k=0;k<4;k++){st[hsh(n-k)]={h:H[k],o:OP[k],c:'#8fb6ff'};}
+  if(t>=111.92){const g=Math.min(1,(t-111.92)/.5);for(let k=0;k<4;k++){const nn=n-k;const j=(hsh(nn)+7+((nn*5)%20))%40;st[j]={h:H[k]*.8,o:OP[k]*g,c:'#f8f3f0'};}}
+  hb.forEach((b,i)=>{b.setAttribute('y2',760-st[i].h);b.setAttribute('opacity',st[i].o);b.setAttribute('stroke',st[i].c);});
+}
+upd3(104.4);
+tl.to('#hop',{opacity:1,duration:.8,ease:E},R(104.3));
+tl.to('#hop',{opacity:0,duration:.8,ease:E},R(113.8));
+const o3={t:0};tl.to(o3,{t:1,duration:R(114.4)-R(104.3),ease:'none',onUpdate:()=>upd3(104.3+o3.t*10.1)},R(104.3));
+
+/* ---- DAC -> amplifier -> driver (diagram) ---- */
+const w1=document.getElementById('w1'),w2=document.getElementById('w2'),ed=document.getElementById('edots'),eds=[];
+for(let k=0;k<7;k++){const c=document.createElementNS(SVGNS,'circle');c.setAttribute('r',7);c.setAttribute('opacity',0);ed.appendChild(c);eds.push(c);}
+function sinePath(x0,x1,A,ph){let d='';for(let x=x0;x<=x1;x+=4){const env=Math.min(1,(x-x0)/20)*Math.min(1,(x1-x)/20);const y=540+A*env*Math.sin((x-x0)/22+ph);d+=(d?' L':'M')+x+' '+y.toFixed(1);}return d;}
+function updE(t){
+  const ph=-t*9;
+  w1.setAttribute('d',sinePath(940,1070,t>=119.3?9:0,ph));
+  w2.setAttribute('d',sinePath(1215,1395,t>=120.2?38:0,ph));
+  eds.forEach((c,k)=>{let f=(t-119.3)/2.0-k*.14;f=f-Math.floor(f);const x=940+f*(1395-940);
+    const o=(t<119.3||t>123.0)?0:Math.pow(Math.sin(Math.PI*f),.6)*.95;
+    const A=(x<1070)?(t>=119.3?9:0):((x>1215)?(t>=120.2?38:0):0);
+    const x0=x<1070?940:1215;const env=Math.min(1,(x-x0)/20);
+    c.setAttribute('cx',x);c.setAttribute('cy',540+A*env*Math.sin((x-x0)/22+ph));c.setAttribute('opacity',o);});
+  const vib=t>=121.28?6*Math.sin(t*38):0;document.getElementById('cone').setAttribute('transform','translate('+vib+' 0)');
+}
+updE(100);
+tl.to('#elec',{opacity:1,duration:.7,ease:E},R(118.9));tl.to('#elec',{opacity:0,duration:.9,ease:E},R(123.0));
+tl.fromTo('#chipGlow',{opacity:0},{opacity:.9,duration:.4,ease:E,yoyo:true,repeat:1},R(119.3));
+tl.fromTo('#ampGlow',{opacity:0},{opacity:.9,duration:.4,ease:E,yoyo:true,repeat:1},R(120.2));
+tl.to('#drvGlow2',{opacity:.85,duration:.5,ease:E},R(121.28));
+const oE={t:0};tl.to(oE,{t:1,duration:R(123.5)-R(119.0),ease:'none',onUpdate:()=>updE(119.0+oE.t*4.5)},R(119.0));
+
+tl.to('#fx',{opacity:1,duration:.3},R(71));tl.set('#fx0',{opacity:1},R(71));
+
+/* ---- ear ---- */
+tl.to('#earL',{opacity:1,duration:1.4,ease:E},R(123.4));
+const air=document.getElementById('air'),rings=[];
+for(let k=0;k<16;k++){const p=document.createElementNS(SVGNS,'path');p.setAttribute('opacity',0);p.setAttribute('stroke-width',3);air.appendChild(p);rings.push(p);}
+const CX=518,CY=552,RMAX=965,TRAVEL=3.0,TT=124.4;
+function upd(t){rings.forEach((p,k)=>{const tk=TT+k*.45;const u=(t-tk)/TRAVEL;
+  if(u<0||u>1.1){p.setAttribute('opacity',0);return;}
+  const r=10+RMAX*u;const A=(34-14*Math.min(u,1))*Math.PI/180;
+  const x=CX+r*Math.cos(A),y1=CY-r*Math.sin(A),y2=CY+r*Math.sin(A);
+  p.setAttribute('d','M'+x+' '+y1+' A'+r+' '+r+' 0 0 1 '+x+' '+y2);
+  const fi=Math.min(1,(t-tk)/.35),fo=u>1?Math.max(0,1-(u-1)/.1):1;
+  p.setAttribute('opacity',.8*fi*fo*(1-.3*u));p.setAttribute('stroke-width',3.2-1.4*u);});}
+upd(100);
+const o={t:0};tl.to(o,{t:1,duration:R(131.5)-R(124.3),ease:'none',onUpdate:()=>upd(124.3+o.t*7.2)},R(124.3));
+tl.to('#drumGlow',{opacity:1,duration:.5,ease:E},R(127.4));
+tl.fromTo('#drumGlow',{attr:{r:55}},{attr:{r:85},duration:.25,ease:'sine.inOut',yoyo:true,repeat:Math.floor((131.5-127.4)/.25)},R(127.4));
+tl.to('#cochGlow',{opacity:.95,duration:.9,ease:E},R(129.39));
+tl.fromTo('#cochGlow',{attr:{r:105}},{attr:{r:140},duration:.9,ease:'sine.inOut',yoyo:true,repeat:Math.floor((131.5-130.3)/.9)},R(130.3));
+window.__timelines={main:tl};
+</script></body></html>

@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>body{margin:0}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#0f1015}
+/* RULE: footage lives in its own stage (right), text in the left column. Same background colour as the render, no tint, feathered edge only. */
+#stage{position:absolute;left:640px;top:180px;width:1280px;height:720px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%);mask-image:linear-gradient(90deg,transparent 0,#000 6%)}
+#stage video{width:1280px;height:720px;display:block}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#fi,#fo{position:absolute;inset:0;background:#0f1015;opacity:0}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="15.2" data-fps="24">
+<div id="stage"><video src="assets/e11f6540-c4ba-443d-a5b3-ba124a61a5a7.mp4" data-start="0" data-duration="15.2" muted></video></div>
+<video id="ov" src="assets/a2a18c6d-d95a-47dd-8ffb-59d4b3892773.webm" data-start="3.0" data-duration="12.2" muted></video>
+<div id="fi"></div><div id="fo"></div>
+<audio src="assets/2c7309f3-e7fe-449c-b6fa-34b325d55573.mp3" data-start="0" data-duration="15.2"></audio>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+tl.fromTo('#fi',{opacity:1},{opacity:0,duration:.6,ease:'power1.out'},0).fromTo('#fo',{opacity:0},{opacity:1,duration:.5,ease:'power1.in'},14.7);
+window.__timelines={main:tl};</script></body></html>

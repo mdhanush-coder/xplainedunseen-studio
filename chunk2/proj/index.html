@@ -1,0 +1,159 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+body{margin:0}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.full{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.lay{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.lay video,.lay img{width:1920px;height:1080px;display:block;filter:url(#toe)}
+#vB,#vF,#phoneZ,#chipL,#earL,#mech{opacity:0}
+#phone,#chip,#ear{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#phone>img,#chip img,#ear img{width:1920px;height:1080px;display:block;filter:url(#blk)}
+#mech{-webkit-mask-image:linear-gradient(90deg,transparent 600px,#000 710px);mask-image:linear-gradient(90deg,transparent 600px,#000 710px)}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="55.8" data-fps="24">
+<svg width="0" height="0" style="position:absolute"><defs>
+<filter id="blk" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.08"/><feFuncG type="linear" slope="1.08" intercept="-0.08"/><feFuncB type="linear" slope="1.08" intercept="-0.08"/></feComponentTransfer></filter>
+<filter id="toe" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/><feFuncG type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/><feFuncB type="table" tableValues="0 0 0 .07 .2 .25 .3 .35 .4 .45 .5 .55 .6 .65 .7 .75 .8 .85 .9 .95 1"/></feComponentTransfer></filter>
+</defs></svg>
+
+<!-- A: wired headphone (continues the hook), fades out, exploded view fades in. One wrapper so the move is continuous. -->
+<div id="foot2" class="full">
+  <div id="gA" class="lay">
+    <div class="lay"><img src="assets/7aa41ccf-2329-4640-8f49-f2638b5cb3dd.png"></div>
+    <div class="lay"><video src="assets/e11f6540-c4ba-443d-a5b3-ba124a61a5a7.mp4" data-start="0" data-duration="2.7" data-media-start="4.3" muted></video></div>
+  </div>
+  <div class="lay" id="vB"><video src="assets/e11f6540-c4ba-443d-a5b3-ba124a61a5a7.mp4" data-start="2.6" data-duration="3.6" data-media-start="12.6" muted></video></div>
+  <div class="lay" id="vF"><img src="assets/8b2c0a5d-4269-4021-8282-ec64cd54a55c.png"></div>
+</div>
+
+<!-- C: phone, with live light: breathing chip glow, a light sweep along the body, signal dots running chip -> connector -> down the cable -->
+<div id="phoneZ" class="full"><div id="phone"><img src="assets/ee950203-dbdf-47f3-8c44-b7e3afcd2eef.png">
+<svg class="full" viewBox="0 0 1920 1080" style="position:absolute;left:0;top:0">
+<defs>
+<radialGradient id="pg"><stop offset="0" stop-color="#bfe3ff" stop-opacity=".95"/><stop offset=".35" stop-color="#4aa3ff" stop-opacity=".5"/><stop offset="1" stop-color="#044aba" stop-opacity="0"/></radialGradient>
+<linearGradient id="sw" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#8fb6ff" stop-opacity="0"/><stop offset=".5" stop-color="#cfe6ff" stop-opacity=".55"/><stop offset="1" stop-color="#8fb6ff" stop-opacity="0"/></linearGradient>
+<clipPath id="pbody"><rect x="278" y="374" width="1380" height="210" rx="40"/></clipPath>
+<filter id="pgl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<circle id="pchip" cx="965" cy="425" r="270" fill="url(#pg)" opacity=".15" style="mix-blend-mode:screen"/>
+<ellipse id="psweep" cx="380" cy="478" rx="170" ry="75" fill="url(#pg)" opacity="0" style="mix-blend-mode:screen"/>
+<g id="pdots" fill="#e6f2ff" filter="url(#pgl)"><circle r="8" opacity="0"/><circle r="8" opacity="0"/><circle r="8" opacity="0"/><circle r="8" opacity="0"/><circle r="8" opacity="0"/><circle r="8" opacity="0"/><circle r="8" opacity="0"/></g>
+</svg></div></div>
+
+<!-- D: chip macro, bits -> smooth wave (left side baked to fade into black) -->
+<div id="chipL" class="full"><div id="chipZ" class="full"><div id="chip"><img src="assets/28c0bd6c-8853-45ef-9a3b-fac3fe0696b1.png"></div></div></div>
+
+<!-- F: 3D ear anatomy that the sound waves enter -->
+<div id="earL" class="full"><div id="ear"><img src="assets/8c527889-6d93-4f79-ae64-2e75ba3ec89c.png"></div></div>
+
+<!-- E: glowing cross-section of the driver, then the waves travel on to the ear -->
+<svg id="mech" class="full" viewBox="0 0 1920 1080">
+<defs><filter id="gl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="eg"><stop offset="0" stop-color="#bfe3ff" stop-opacity=".9"/><stop offset=".4" stop-color="#4aa3ff" stop-opacity=".45"/><stop offset="1" stop-color="#8fb6ff" stop-opacity="0"/></radialGradient></defs>
+<g id="cam">
+<g id="housing" fill="none" stroke="#f8f3f0" stroke-width="3" opacity="0" filter="url(#gl)"><path d="M1030 330 H870 Q800 330 800 400 V680 Q800 750 870 750 H1030"/></g>
+<g id="cable" filter="url(#gl)" stroke="#8fb6ff" stroke-width="4" fill="none"><path d="M660 534 H800"/><path d="M660 546 H800"/></g>
+<g id="leads" opacity="0" stroke="#8fb6ff" stroke-width="3" fill="none"><path d="M800 534 L840 488 H930"/><path d="M800 546 L840 592 H930"/></g>
+<g id="magnet" opacity="0" filter="url(#gl)" fill="#044aba" fill-opacity=".55" stroke="#8fb6ff" stroke-width="2"><rect x="860" y="420" width="20" height="240"/><rect x="880" y="420" width="95" height="50"/><rect x="880" y="610" width="95" height="50"/><rect x="880" y="505" width="95" height="70"/></g>
+<g id="coilgrp" opacity="0">
+  <g id="coil" stroke="#8fb6ff" stroke-width="2" filter="url(#gl)"><rect x="930" y="478" width="70" height="20" fill="#8fb6ff" fill-opacity=".15"/><rect x="930" y="582" width="70" height="20" fill="#8fb6ff" fill-opacity=".15"/><path fill="none" d="M940 478v20M950 478v20M960 478v20M970 478v20M980 478v20M990 478v20M940 582v20M950 582v20M960 582v20M970 582v20M980 582v20M990 582v20"/></g>
+  <path d="M1000 488H1018M1000 592H1018" stroke="#8fb6ff" stroke-width="3" fill="none"/>
+  <path id="dia" d="M1018 360 Q1034 540 1018 720" pathLength="1" stroke="#f8f3f0" stroke-width="5" fill="none" stroke-dasharray="1" stroke-dashoffset="1" filter="url(#gl)"/>
+</g>
+<g id="pulses" fill="#f8f3f0" filter="url(#gl)"><circle r="7" opacity="0"/><circle r="7" opacity="0"/><circle r="7" opacity="0"/><circle r="7" opacity="0"/><circle r="7" opacity="0"/></g>
+</g>
+<g id="air" fill="none" stroke="#8fb6ff" stroke-linecap="round" filter="url(#gl)"></g>
+<circle id="drumGlow" cx="1483" cy="528" r="70" fill="url(#eg)" opacity="0"/>
+<circle id="cochGlow" cx="1756" cy="522" r="125" fill="url(#eg)" opacity="0"/>
+</svg>
+
+<video id="ov" src="assets/efe505f2-9c42-4c41-869d-388a548499cf.webm" data-start="0" data-duration="55.8" muted></video>
+<audio src="assets/2c7309f3-e7fe-449c-b6fa-34b325d55573.mp3" data-start="0" data-duration="55.8" data-media-start="15.2"></audio>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+const O=15.2,R=a=>a-O,E='sine.inOut';
+gsap.set('#foot2',{transformOrigin:'0 0',x:300,y:0,scale:1});
+gsap.set('#phone',{transformOrigin:'0 0',x:426,y:162,scale:.85});
+gsap.set('#chip',{transformOrigin:'0 0',x:288,y:162,scale:.85});
+gsap.set('#ear',{transformOrigin:'0 0',x:898,y:216,scale:.6});
+gsap.set('#phoneZ',{transformOrigin:'1246px 523px'});
+gsap.set('#chipZ',{transformOrigin:'1250px 560px'});
+gsap.set('#cam',{transformOrigin:'940px 540px'});
+
+/* beat table (abs narration seconds -> screen); every change is a fade, never a cut and never two poses ghosted together
+ 15.2-18   wired headphone keeps turning (same frame as the hook), fades out
+ 18-25     exploded view fades in and holds: no chip / battery / radio (left tags)
+ 24-36     phone with living light: chip glow breathes, light sweeps the body, signal dots run down the cable
+ 36-41     chip macro: bits become a smooth wave
+ 40-59     glowing cross-section: signal in the wire, magnet, coil, current, coil moves, diaphragm
+ 59-71     the scene pans right: waves travel into the 3D ear, hit the eardrum, light up the cochlea */
+tl.fromTo('#foot2',{x:300,y:0,scale:1},{x:543,y:119,scale:.89,duration:2.6,ease:E},R(17.0));
+tl.to('#gA',{opacity:0,duration:1.0,ease:E},R(17.0));
+tl.to('#vB',{opacity:1,duration:1.0,ease:E},R(17.9));
+tl.set('#vF',{opacity:1},R(21.35));
+tl.to('#foot2',{opacity:0,duration:1.0,ease:E},R(23.4));
+tl.to('#phoneZ',{opacity:1,duration:1.2,ease:E},R(24.1));
+tl.fromTo('#phoneZ',{scale:1},{scale:1.1,duration:11,ease:'none'},R(24.5));
+tl.to('#phoneZ',{opacity:0,duration:1.0,ease:E},R(35.5));
+tl.to('#chipL',{opacity:1,duration:1.3,ease:E},R(36.3));
+tl.fromTo('#chipZ',{scale:1},{scale:1.06,duration:5,ease:'none'},R(36.3));
+tl.to('#chipL',{opacity:0,duration:1.2,ease:E},R(39.7));
+tl.to('#mech',{opacity:1,duration:1.0,ease:E},R(40.0));
+
+/* phone: living light */
+tl.fromTo('#pchip',{opacity:.15},{opacity:.8,duration:1.2,ease:'sine.inOut',yoyo:true,repeat:Math.floor(12.8/1.2)},R(24.2));
+for(let k=0;k<5;k++){const t=R(25.0+k*2.7);tl.fromTo('#psweep',{attr:{cx:380}},{attr:{cx:1560},duration:2.6,ease:'power1.inOut'},t);tl.fromTo('#psweep',{opacity:0},{opacity:.42,duration:1.3,ease:'sine.out'},t);tl.to('#psweep',{opacity:0,duration:1.3,ease:'sine.in'},t+1.3);}
+const P2=[[965,470],[700,490],[520,515],[470,545],[460,650],[450,770],[470,890],[505,990],[525,1085]];
+const segL=[];let LT2=0;for(let i=1;i<P2.length;i++){const l=Math.hypot(P2[i][0]-P2[i-1][0],P2[i][1]-P2[i-1][1]);segL.push(l);LT2+=l;}
+function pt2(d){for(let i=0;i<segL.length;i++){if(d<=segL[i]){const f=d/segL[i];return[P2[i][0]+(P2[i+1][0]-P2[i][0])*f,P2[i][1]+(P2[i+1][1]-P2[i][1])*f];}d-=segL[i];}return P2[P2.length-1];}
+const pd=[...document.querySelectorAll('#pdots circle')];
+function upd2(t){pd.forEach((c,k)=>{let f=(t-24.5)/3.2-k*.14;f=f-Math.floor(f);const q=pt2(f*LT2);c.setAttribute('cx',q[0]);c.setAttribute('cy',q[1]);
+  let o=Math.pow(Math.sin(Math.PI*f),.6)*.95;if(t<24.5)o=0;o*=Math.max(0,Math.min(1,(36.3-t)/.8));c.setAttribute('opacity',o);});}
+upd2(20);
+const o2={t:0};tl.to(o2,{t:1,duration:R(36.3)-R(24.5),ease:'none',onUpdate:()=>upd2(24.5+o2.t*11.8)},R(24.5));
+
+/* cross-section */
+tl.to('#housing',{opacity:1,duration:1.2,ease:E},R(42.0));
+tl.to('#magnet',{opacity:1,duration:1.3,ease:E},R(44.24));
+tl.to('#coilgrp',{opacity:1,duration:1.1,ease:E},R(47.6));
+tl.to('#leads',{opacity:1,duration:1.0,ease:E},R(47.9));
+tl.to('#coil rect,#coil path',{stroke:'#f8f3f0',duration:.5},R(49.6));
+const N=Math.floor((59.4-51.42)/.17);
+tl.fromTo('#coilgrp',{x:0},{x:12,duration:.17,ease:'sine.inOut',yoyo:true,repeat:N},R(51.42));
+tl.to('#dia',{strokeDashoffset:0,duration:1.4,ease:E},R(54.2));
+/* camera: push in on the cup, then pan away to the right so the waves lead into the ear */
+tl.fromTo('#cam',{scale:1,x:0},{scale:1.9,x:0,duration:2.2,ease:E},R(42.0));
+tl.to('#cam',{scale:1,x:-500,duration:1.8,ease:E},R(57.6));
+tl.to('#earL',{opacity:1,duration:1.4,ease:E},R(58.6));
+tl.to('#drumGlow',{opacity:1,duration:.5,ease:E},R(62.65));
+tl.fromTo('#drumGlow',{attr:{r:55}},{attr:{r:85},duration:.25,ease:'sine.inOut',yoyo:true,repeat:Math.floor((70.6-62.65)/.25)},R(62.65));
+tl.to('#cochGlow',{opacity:.95,duration:.9,ease:E},R(64.07));
+tl.fromTo('#cochGlow',{attr:{r:105}},{attr:{r:140},duration:.9,ease:'sine.inOut',yoyo:true,repeat:Math.floor((70.6-64.9)/.9)},R(64.9));
+
+/* signal pulses along the wire + air rings (screen space, centred on the diaphragm after the pan) */
+const L1=140,L2=Math.hypot(40,46),L3=90,LT=L1+L2+L3;
+function pt(d){ if(d<=L1)return[660+d,534]; d-=L1; if(d<=L2)return[800+40*d/L2,534-46*d/L2]; d-=L2; return[840+d,488]; }
+const pul=[...document.querySelectorAll('#pulses circle')];
+const air=document.getElementById('air'),rings=[];
+for(let k=0;k<12;k++){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('opacity',0);p.setAttribute('stroke-width',3);air.appendChild(p);rings.push(p);}
+const CX=518,CY=552,RMAX=965,TRAVEL=3.25,T0=59.4;
+function upd(t){
+  const gain=t>=69.09?1.35:1;
+  pul.forEach((c,k)=>{let f=(t-40)/1.2-k*.24;f=f-Math.floor(f);const d=f*LT;const q=pt(Math.min(d,LT));
+    c.setAttribute('cx',q[0]);c.setAttribute('cy',q[1]);
+    let o=Math.pow(Math.sin(Math.PI*f),.7)*gain; if(t<47.9){o*=Math.max(0,Math.min(1,(150-d)/20));} if(t<40||t>58.2)o=0;
+    c.setAttribute('opacity',Math.min(1,o));});
+  rings.forEach((p,k)=>{const tk=T0+k*.45;const u=(t-tk)/TRAVEL;
+    if(u<0||u>1.1){p.setAttribute('opacity',0);return;}
+    const r=10+RMAX*u;const A=(34-14*Math.min(u,1))*Math.PI/180;
+    const x=CX+r*Math.cos(A),y1=CY-r*Math.sin(A),y2=CY+r*Math.sin(A);
+    p.setAttribute('d','M'+x+' '+y1+' A'+r+' '+r+' 0 0 1 '+x+' '+y2);
+    const fi=Math.min(1,(t-tk)/.35),fo=u>1?Math.max(0,1-(u-1)/.1):1;
+    p.setAttribute('opacity',.8*fi*fo*(1-.3*u));p.setAttribute('stroke-width',3.2-1.4*u);});
+}
+upd(39);
+const o={t:0};
+tl.to(o,{t:1,duration:R(70.5)-R(40),ease:'none',onUpdate:()=>upd(40+o.t*30.5)},R(40));
+window.__timelines={main:tl};
+</script></body></html>

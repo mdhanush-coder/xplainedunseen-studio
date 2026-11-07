@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>body{margin:0}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.st{position:absolute;left:640px;top:100px;width:1280px;height:880px;opacity:0}
+.st img{width:1280px;height:880px;object-fit:contain;display:block}
+#foot{top:180px;height:720px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 96%,transparent 100%),linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 96%,transparent 100%),linear-gradient(180deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
+#foot video{width:1280px;height:720px;display:block;filter:url(#blk)}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#fo{position:absolute;inset:0;background:#000;opacity:0}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="15.2" data-fps="24">
+<svg width="0" height="0" style="position:absolute"><filter id="blk" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.08"/><feFuncG type="linear" slope="1.08" intercept="-0.08"/><feFuncB type="linear" slope="1.08" intercept="-0.08"/></feComponentTransfer></filter></svg>
+<div class="st" id="a"><img src="assets/920c52bb-82af-4fa7-b03b-578ff5e5e1ad.png"></div>
+<div class="st" id="b"><img src="assets/38a06c9b-e336-46e5-b193-677219e1c9e3.png"></div>
+<div class="st" id="c"><img src="assets/19759814-ec16-4449-abc0-c4f8cc40a5ce.png"></div>
+<div class="st" id="d"><img src="assets/9e2a638b-df38-49e6-8e2d-f46c767261e8.png"></div>
+<div class="st" id="foot"><video src="assets/e11f6540-c4ba-443d-a5b3-ba124a61a5a7.mp4" data-start="10.8" data-duration="4.4" muted></video></div>
+<video id="ov" src="assets/a2a18c6d-d95a-47dd-8ffb-59d4b3892773.webm" data-start="3.0" data-duration="12.2" muted></video>
+<div id="fo"></div>
+<audio src="assets/2c7309f3-e7fe-449c-b6fa-34b325d55573.mp3" data-start="0" data-duration="15.2"></audio>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+// beat: voice says -> screen shows. a person 0-3.4 | b radiation 3.0-6.1 | c cancer 5.85-7.2 | d brain tumour 7.0-11.1 | foot wired headphone 10.8-15.2
+const seq=[['#a',0,.6,3.4],['#b',3.0,.5,6.1],['#c',5.85,.45,7.2],['#d',7.0,.5,11.1],['#foot',10.8,.5,15.2]];
+seq.forEach(([s,t,f,end])=>{
+  tl.fromTo(s,{opacity:0},{opacity:1,duration:f,ease:'power1.out'},t);
+  if(s!=='#foot')tl.to(s,{opacity:0,duration:.4,ease:'power1.in'},end-.4);
+  if(s!=='#foot')tl.fromTo(s,{scale:1},{scale:1.06,duration:end-t,ease:'none'},t);
+});
+tl.fromTo('#fo',{opacity:0},{opacity:1,duration:.5,ease:'power1.in'},14.7);
+window.__timelines={main:tl};</script></body></html>

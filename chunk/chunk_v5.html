@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>body{margin:0}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+#head{position:absolute;left:640px;top:100px;width:1280px;height:880px}
+.st{position:absolute;left:0;top:0;width:1280px;height:880px;opacity:0}
+.st img{width:1280px;height:880px;object-fit:contain;display:block;filter:url(#blk)}
+#foot{position:absolute;left:640px;top:180px;width:1280px;height:720px;opacity:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 94%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 94%,transparent 100%),linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
+#foot video{width:1280px;height:720px;display:block;filter:url(#blk)}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#fo{position:absolute;inset:0;background:#000;opacity:0}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="15.2" data-fps="24">
+<svg width="0" height="0" style="position:absolute"><filter id="blk" color-interpolation-filters="sRGB"><feComponentTransfer><feFuncR type="linear" slope="1.08" intercept="-0.08"/><feFuncG type="linear" slope="1.08" intercept="-0.08"/><feFuncB type="linear" slope="1.08" intercept="-0.08"/></feComponentTransfer></filter></svg>
+<div id="head">
+<div class="st" id="a"><img src="assets/920c52bb-82af-4fa7-b03b-578ff5e5e1ad.png"></div>
+<div class="st" id="b"><img src="assets/38a06c9b-e336-46e5-b193-677219e1c9e3.png"></div>
+<div class="st" id="c"><img src="assets/19759814-ec16-4449-abc0-c4f8cc40a5ce.png"></div>
+<div class="st" id="d"><img src="assets/9e2a638b-df38-49e6-8e2d-f46c767261e8.png"></div>
+</div>
+<div id="foot"><video src="assets/e11f6540-c4ba-443d-a5b3-ba124a61a5a7.mp4" data-start="10.4" data-duration="4.8" muted></video></div>
+<video id="ov" src="assets/a2a18c6d-d95a-47dd-8ffb-59d4b3892773.webm" data-start="3.0" data-duration="12.2" muted></video>
+<div id="fo"></div>
+<audio src="assets/2c7309f3-e7fe-449c-b6fa-34b325d55573.mp3" data-start="0" data-duration="15.2"></audio>
+</div>
+<script>const tl=gsap.timeline({paused:true});
+// Every image is pinned so the nose sits at (350,480) with the same head height, so a dissolve looks like the same head gaining rings, brain, cell.
+const T={x:350,y:480};
+const P={a:{n:[352,463],k:1.16},b:{n:[342,535],k:.985},c:{n:[339,507],k:1.176},d:{n:[291,553],k:.958}};
+Object.entries(P).forEach(([id,p])=>gsap.set('#'+id,{transformOrigin:p.n[0]+'px '+p.n[1]+'px',x:T.x-p.n[0],y:T.y-p.n[1],scale:p.k}));
+gsap.set('#head',{transformOrigin:T.x+'px '+T.y+'px'});
+// slow push-in on the whole head, continuous, so nothing ever sits still
+tl.fromTo('#head',{scale:1},{scale:1.1,duration:11.5,ease:'none'},0);
+// dissolves: the new layer fades in ON TOP of the old one (old stays opaque), then the old one is switched off. No dip, no cut.
+const E='sine.inOut';
+tl.fromTo('#a',{opacity:0},{opacity:1,duration:1.0,ease:E},0);
+const dis=(prev,next,t,f)=>{tl.fromTo(next,{opacity:0},{opacity:1,duration:f,ease:E},t);tl.set(prev,{opacity:0},t+f)};
+dis('#a','#b',2.7,1.4);
+dis('#b','#c',5.2,1.3);
+dis('#c','#d',6.7,1.5);
+tl.fromTo('#foot',{opacity:0},{opacity:1,duration:1.6,ease:E},10.3);
+tl.to('#head',{opacity:0,duration:.1},11.95);
+tl.fromTo('#fo',{opacity:0},{opacity:1,duration:.5,ease:'sine.in'},14.7);
+window.__timelines={main:tl};</script></body></html>

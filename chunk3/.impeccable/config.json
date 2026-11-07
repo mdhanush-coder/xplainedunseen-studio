@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "proj/index.html"
+        ],
+        "createdAt": "2026-11-07T15:05:08.908Z",
+        "reason": "assistant: video-frame SVG artwork (codec digit block has 15-25px inset, measured); not a UI container"
+      }
+    ]
+  }
+}

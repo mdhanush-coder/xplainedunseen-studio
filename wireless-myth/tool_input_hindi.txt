@@ -1,0 +1,50 @@
+[calm, narration] लोग मानते हैं, कि वायरलेस headphone से radiation निकलता है, और वो दिमाग़ में cancer, यानी brain tumour, कर सकता है।
+[calm, narration] ये एक बहुत आम myth है। तो सच क्या है? चलो, एक पुराने wired headphone से शुरू करते हैं।
+[calm, narration] ये वाला, जिसे आप बचपन से इस्तेमाल कर रहे हो।
+[long pause]
+[calm, narration] इस headphone के अंदर न कोई chip है, न कोई battery, न कोई radio।
+[calm, narration] बस एक तार है, जो आपके फ़ोन से सीधे आपके कान तक आती है।
+[calm, narration] फ़ोन के अंदर एक छोटा सा हिस्सा होता है, जिसे DAC कहते हैं। वो digital music को बिजली के signal में बदल देता है।
+[calm, narration] ये signal तार से होता हुआ headphone के अंदर पहुँचता है।
+[calm, narration] अंदर एक magnet है, और उसके पास एक पतली सी coil।
+[calm, narration] बिजली coil से गुज़रती है, coil magnet के साथ हिलती है, और उससे जुड़ा एक पतला पर्दा, यानी diaphragm, हवा को हिलाता है।
+[calm, narration] हवा की ये लहरें जब आपके कान के पर्दे से टकराती हैं, तब आपको music सुनाई देता है।
+[calm, narration] यानी wired headphone में music, बस एक चलती हुई बिजली है।
+[long pause]
+[calm, narration] अब इसी headphone की तार काट दो। और wireless वाले को खोलो।
+[calm, narration] Driver वही है। Magnet वही, coil वही। पर अब उसके पीछे कुछ नए मेहमान आ गए हैं।
+[calm, narration] पहला, एक battery। दूसरा, एक छोटा computer chip। और तीसरा, एक antenna।
+[calm, narration] फ़ोन का music पहले एक code में बदलकर छोटा किया जाता है, जिसे codec कहते हैं, जैसे SBC, AAC या Sony का LDAC।
+[calm, narration] फिर वो data, radio waves बनकर हवा में निकलता है।
+[calm, narration] ये waves दो पॉइंट चार gigahertz पर चलती हैं, और एक सेकंड में लगभग सोलह सौ बार अपना रास्ता बदलती हैं, ताकि दूसरे signals से न टकराएँ।
+[calm, narration] Headphone का antenna उन्हें पकड़ता है, chip उन्हें वापस music में बदलता है, और फिर DAC और amplifier उसे बिजली बनाकर driver तक पहुँचाते हैं।
+[calm, narration] यानी आख़िर में कान तक जो पहुँचता है, वो अब भी वही है, बिजली से हिलता हुआ पर्दा।
+[long pause]
+[calm, narration] तो अब असली सवाल। दिमाग़ को ख़तरा कहाँ से आ सकता है? सिर्फ़ एक जगह से। उस antenna से।
+[calm, narration] ऐसी waves दो तरह की होती हैं। एक जो atoms तक को तोड़ सकती हैं, जैसे X-ray।
+[calm, narration] इन्हें ionizing कहते हैं।
+[calm, narration] दूसरी बहुत हल्की होती हैं, जैसे radio, Wi-Fi और Bluetooth।
+[calm, narration] इन्हें non-ionizing कहते हैं।
+[calm, narration] DNA को तोड़ने के लिए जितनी energy चाहिए, Bluetooth की wave में उसका हज़ारवाँ हिस्सा भी नहीं होता। यहाँ तक कि आपके कमरे की रोशनी में भी इससे ज़्यादा energy होती है।
+[calm, narration] और power? Bluetooth headphone की power ज़्यादा से ज़्यादा कुछ milliwatt होती है। आपके फ़ोन का signal इससे कई गुना ज़्यादा होता है।
+[calm, narration] हाँ, एक बात सच है।
+[calm, narration] साल दो हज़ार ग्यारह में IARC नाम की संस्था ने radio waves को ऐसी list में डाला था।
+[calm, narration] जिसमें वो चीज़ें आती हैं जिनसे cancer होने की संभावना हो सकती है।
+[calm, narration] सुनकर डर लगता है। पर उसी list में कुछ तरह के अचार भी हैं। मतलब, सबूत कमज़ोर हैं, और research अभी चल रही है।
+[calm, narration] और उसके बाद के बड़े reviews में, अब तक कोई पक्का link नहीं मिला।
+[calm, narration] यानी antenna से डरने की कोई पक्की वजह, अभी तक, नहीं मिली है।
+[long pause]
+[calm, narration] लेकिन ध्यान से देखो। इस पूरे headphone में एक हिस्सा ऐसा है जो सच में नुकसान करता है। वो antenna नहीं है।
+[calm, narration] वो driver है। और उसका volume।
+[calm, narration] जब पर्दा बहुत ज़ोर से हिलता है, तो कान के अंदर के बाल जैसे छोटे-छोटे cells टूटने लगते हैं। और वो दोबारा नहीं उगते।
+[calm, narration] WHO के हिसाब से, दुनिया में एक अरब से ज़्यादा young लोग, तेज़ आवाज़ में सुनने की वजह से ख़तरे में हैं।
+[calm, narration] Safe limit लगभग पचासी decibel है, और वो भी सिर्फ़ आठ घंटे के लिए। Volume जितना बढ़ाओगे, safe समय उतना कम होता जाएगा।
+[calm, narration] और ये ख़तरा wired में भी उतना ही है, wireless में भी।
+[calm, narration] दूसरी असली problem है battery। छोटे earbuds की battery ख़राब हुई, तो पूरा headphone बेकार।
+[calm, narration] तीसरी, latency, यानी आवाज़ का थोड़ी देर से पहुँचना, क्योंकि data को compress करना, भेजना और खोलना पड़ता है। ये परेशानी है, ख़तरा नहीं।
+[long pause]
+[calm, narration] तो सच ये है।
+[calm, narration] Wireless का antenna, जिससे लोग डरते हैं, बहुत कमज़ोर है। और driver, जिसे कोई देखता नहीं, वही कान का असली दुश्मन है।
+[calm, narration] Wired हो या wireless, एक नियम याद रखो। Volume कम, और break ज़्यादा।
+[calm, narration] अब वो पुराना wired headphone फिर से उठाओ, और सोचो, कि अब तक आप किस चीज़ से डर रहे थे।
+[calm, narration] आपको क्या लगता है? Comment में बताओ।
